@@ -1,0 +1,349 @@
+{
+"moviePlotOutline": {
+"title": "[Movie Title]",
+"logline": "[A one-sentence summary of the plot]",
+"characterArc": {
+"ignition": "[State of the character at the beginning of the story.]",
+"shiftGears": "[The event which causes the character to see a different side of themselves]",
+"fastLane": "[The character is now in a new lane, and speeding up]",
+"pitStop": "[The character reassesses their role and identity.]",
+"floorIt": "[The character embraces their new identity and trajectory]",
+"crashAndBurn": "[A climactic event where the old life of the character is destroyed]",
+"finishLine": "[The character emerges transformed]"
+},
+"theme": "[The main idea or message the movie explores]"
+}
+}
+{
+"beatSheet": {
+"title": "Beat Sheet",
+"beats": [
+{
+"beat": "Opening Image",
+"page": 1,
+"description": "[A visual that sets the tone of the movie, and introduces the character's world]"
+},
+{
+"beat": "Theme Stated",
+"page": 5,
+"description": "[A moment where the central theme of the movie is suggested by a line of dialogue or event]"
+},
+{
+"beat": "Set-up",
+"pages": "1-10",
+"description": "[Introduction of the protagonist and their world and relationships]"
+},
+{
+"beat": "Catalyst",
+"page": 12,
+"description": "[An event or choice that kicks the story into gear and sets the character on their journey]"
+},
+{
+"beat": "Debate",
+"pages": "12-25",
+"description": "[The protagonist reflects upon and comes to terms with the challenge they face]"
+},
+{
+"beat": "Break into Two",
+"page": 25,
+"description": "[The character makes a decision to move into a new world, physically or emotionally]"
+},
+{
+"beat": "B Story",
+"page": 30,
+"description": "[Introduction of a new character, often a love interest or foil, who provides a different perspective on the plot]"
+},
+{
+"beat": "Fun and Games",
+"pages": "30-55",
+"description": "[The protagonist explores the new world or situation they are in]"
+},
+{
+"beat": "Midpoint",
+"page": 55,
+"description": "[An event that significantly impacts the story, either raising the stakes or changing the protagonist's goal]"
+},
+{
+"beat": "Bad Guys Close In",
+"pages": "55-75",
+"description": "[The protagonist encounters challenges and setbacks, usually instigated by an antagonist]"
+},
+{
+"beat": "All is Lost",
+"page": 75,
+"description": "[The lowest point of the story where the protagonist fails or loses something of high value]"
+},
+{
+"beat": "Dark Night of the Soul",
+"pages": "75-85",
+"description": "[The protagonist wrestles with their failure or loss and must find a way to move forward]"
+},
+{
+"beat": "Break into Three",
+"page": 85,
+"description": "[The protagonist has a new way of looking at the situation and a new plan to solve their problem]"
+},
+{
+"beat": "Finale",
+"pages": "85-110",
+"description": "[The protagonist enacts their plan and overcomes the challenges]"
+},
+{
+"beat": "Final Image",
+"page": 110,
+"description": "[A visual that shows how the protagonist has changed and the new status quo]"
+}
+]
+}
+}
+{
+"sceneBreakdown": {
+"title": "Scene Breakdown",
+"acts": [
+{
+"act": "Act One",
+"scenes": "[List of scenes with brief descriptions]"
+},
+{
+"act": "Act Two",
+"scenes": "[List of scenes with brief descriptions]"
+},
+{
+"act": "Act Three",
+"scenes": "[List of scenes with brief descriptions]"
+}
+]
+}
+}
+{
+"characterDescriptions": {
+"title": "Character Descriptions",
+"characters": [
+{
+"character": "Protagonist",
+"description": "[Full name, age, physical description, personality traits, desires, and character arc]"
+},
+{
+"character": "Antagonist",
+"description": "[Full name, age, physical description, personality traits, motivations]"
+},
+{
+"character": "Supporting Characters",
+"description": "[Full name, age, physical description, personality traits, role in the story for each supporting character]"
+}
+]
+}
+}
+{
+"plotDevices": {
+"title": "Plot Devices",
+"devices": [
+{
+"device": "Inciting Incident",
+"description": "[The event that initiates the main conflict]"
+},
+{
+"device": "Turning Points",
+"description": "[Significant events that shift the direction of the story]"
+},
+{
+"device": "Conflict",
+"description": "[The main struggle the protagonist faces; this can include both internal and external conflict]"
+},
+{
+"device": "Suspense",
+"description": "[Moments where the audience knows more than the characters]"
+},
+{
+"device": "Irony",
+"types": [
+{
+"type": "Dramatic Irony",
+"description": "[when the audience has more information than a character]"
+},
+{
+"type": "Situational Irony",
+"description": "[when what is expected to happen is the opposite of what actually happens]"
+},
+{
+"type": "Verbal Irony",
+"description":"[when a character says one thing but means another]"
+}
+]
+}
+]
+}
+}
+{
+"useOfTime": {
+"title": "Use of Time",
+"timeElements": [
+{
+"element": "Transitions",
+"description": "[How the movie moves between scenes, including cuts, dissolves, or montages]"
+},
+{
+"element": "Montages",
+"description": "[A sequence of short scenes that compress time]"
+},
+{
+"element": "Time Jumps",
+"description": "[Instances where time passes and the story moves forward]"
+},
+{
+"element": "Flashbacks/Flashforwards",
+"description": "[Moments where the story shifts to the past or future]"
+}
+]
+}
+}
+{
+"visualElements": {
+"title": "Visual Elements",
+"description": "Details of the visual aspects of the screenplay that contribute to the story's setting, characters, and atmosphere.",
+"elements": [
+{
+"element": "Setting",
+"description": "**The physical location where the story takes place, described in scene headings or sluglines. This includes interior (INT.) and exterior (EXT.) locations, and can specify the time of day.**",
+"params": {
+"locationType": ["INT", "EXT", "INT/EXT"],
+"timeOfDay": ["DAY", "NIGHT", "MORNING", "EVENING", "CONTINUOUS", "MOMENTS LATER"],
+"details": "Additional descriptions using multiple hyphens, subheadings, or specific geographical information. **Time of day should only be specified if integral to the story**."
+}
+},
+{
+"element": "Costumes",
+"description": "**The clothing and accessories worn by characters, which convey information about their identity, social status, and the time period.**",
+"params": {
+"character": "Character name or ID",
+"description": "Detailed notes on clothing, accessories, hair, makeup and how they convey character traits or story elements.",
+"timePeriod": "The era or specific time the costumes represent."
+}
+},
+{
+"element": "Props",
+"description": "**Objects used by characters that are significant to the plot, and are often capitalized in action lines in the script to emphasize their importance.**",
+"params": {
+"objectName": "Name of the prop",
+"description": "Specific details about the prop, its appearance and its significance to the story.",
+"useCase": "How and when the prop is used."
+}
+},
+{
+"element": "Cinematography",
+"description": "**The way the story is visually captured through camera angles, lighting, and movement. Includes camera shots, angles, and movements.**",
+"params": {
+"cameraShots": ["CLOSE UP", "WIDE SHOT", "MEDIUM SHOT","POINT OF VIEW SHOT","OVER THE SHOULDER SHOT"],
+"cameraAngle": ["HIGH ANGLE", "LOW ANGLE", "DUTCH ANGLE", "EYE LEVEL"],
+"lighting": ["HIGH KEY", "LOW KEY", "NATURAL LIGHT", "ARTIFICIAL LIGHT"],
+"movement": ["PAN", "TILT", "TRACK", "ZOOM"] ,
+"notes": "Additional details, including when to use specific shots and when to avoid them. **Screenwriters should generally avoid specifying shots, unless also directing.**"
+}
+},
+{
+"element": "Special Effects",
+"description": "**Techniques used to create visual illusions or enhance the story, including practical and visual effects (VFX).**",
+"params": {
+"effectType": ["PRACTICAL", "VISUAL", "MAKEUP", "HAIR","SFX"],
+"description": "Specifics about what the special effect is supposed to achieve and how it appears on screen.",
+"timePeriod": "If the special effects are meant to suggest a particular time period."
+}
+}
+]
+}
+}
+{
+"soundElements": {
+"title": "Sound Elements",
+"description": "Details of the auditory aspects of the screenplay, enhancing the atmosphere and emotional impact.",
+"elements": [
+{
+"element": "Music",
+"description": "**The use of music to enhance the mood or emotion of a scene. Includes both diegetic (source) and non-diegetic (score) music.**",
+"params": {
+"musicType": ["DIEGETIC", "NON-DIEGETIC"],
+"mood": ["SUSPENSEFUL", "JOYFUL", "SAD", "ROMANTIC", "DRAMATIC", "COMICAL"],
+"description": "Details of how the music is used in the scene, including lyrical or instrumental aspects. **In a script, can include song lyrics, or a description of the musical sequence, especially in musical numbers**."
+}
+},
+{
+"element": "Sound Effects",
+"description": "**Noises or sounds (SFX) used to create atmosphere or enhance the story, indicated in the audio column of an AV script or by capitalization in the action lines of a screenplay.**",
+"params": {
+"effectType": ["AMBIENT", "SPECIFIC", "IMPACT"],
+"description":"Specific sounds and the context in which they are used in a scene. **Capitalization in the screenplay action lines can emphasize the impact of a sound effect.**",
+"avScriptColumn":"If an AV script is being written include which audio column the SFX belongs in."
+}
+},
+{
+"element": "Dialogue",
+"description": "**The spoken words of the characters, including subtext, tone, and any parenthetical performance directions.**",
+"params": {
+"character": "Character name or ID",
+"dialogue": "The exact spoken words of the character.",
+"subtext":"Underlying meanings or intentions of the dialogue.",
+"tone": ["SARCASTIC", "JOYFUL", "SERIOUS", "ANGRY", "SAD"],
+"parenthetical": "Performance directions for actors, such as (WHISPERING) or (LAUGHING). **Should be used sparingly to avoid over-directing actors.**"
+}
+},
+{
+"element": "Voiceover",
+"description": "**Narration provided by a character or unseen narrator (V.O.), used for exposition or internal monologue. Also included in the audio column of an AV script.**",
+"params": {
+"character": "Character name or ID (if applicable)",
+"narration":"The exact words being spoken as voiceover.",
+"purpose": "The reason for the voiceover, whether it's exposition, character's thoughts, or scene setting.",
+"avScriptColumn":"If an AV script is being written include which audio column the V.O. belongs in.",
+"extension": "Formatted as an extension to a character's dialogue"
+}
+}
+]
+}
+}
+{
+"emotionalImpact": {
+"title": "Emotional Impact",
+"description": "Details on how the screenplay evokes emotions in the audience, including specific techniques and devices used.",
+"impact": {
+"emotions": ["SUSPENSE", "HUMOR", "SADNESS", "JOY", "FEAR", "ANGER", "ROMANCE"],
+"techniques":[
+{
+"technique":"Irony",
+"description": "**Irony, including dramatic, verbal, and situational, to create conflict, suspense, and complexity, enhancing the story's emotional depth.**"
+},
+{
+"technique":"Rule of Three",
+"description": "**Using the rule of three to enhance emotional beats in the story and to make concepts or situations more understandable or resonant.**"
+},
+{
+"technique": "Character Arcs",
+"description":"**The emotional journey of characters as they develop and change through the story, particularly their positive, negative or flat arcs.**"
+},
+{
+"technique":"Montage",
+"description":"**Using montages to compress time and show the emotional impact of events on the characters and the story.**"
+}
+],
+"notes": "Additional notes on specific moments that evoke strong emotions, and the overall emotional effect the screenplay is meant to have on the viewer."
+}
+}
+}
+{
+"finalThoughts": {
+"title": "Final Thoughts",
+"description": "Overall reflections on the screenplay, including its themes, structure, and lasting impact.",
+"thoughts": {
+"strengths": "What worked well in the screenplay, including the plot structure, character development, and use of literary devices.",
+"weaknesses": "What could have been improved in the screenplay, such as pacing, character arcs, or dialogue.",
+"themes":"Main themes or messages that the screenplay is meant to convey.",
+"memorableAspects": "**The specific elements, like dialogue, scenes, characters, or emotional moments, that make the story compelling and memorable.**",
+"overallImpact": "The overall effect or feeling that the screenplay is intended to leave with the viewer. **Includes whether the story is thought-provoking, entertaining or moving, and how well the ending resolves the story.**"
+}
+}
+}
+
+{
+"TimeLine": {
+"TODO":"TODO"
+}
+}
