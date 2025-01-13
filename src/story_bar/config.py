@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     
     # LLM Model Configuration
     ANTHROPIC_API_KEY: str
-    ANTHROPIC_MODEL_NAME: str = "claude-3-sonnet-20240229"
+    ANTHROPIC_MODEL_NAME: str = "claude-3.5-sonnet-preview"
     ANTHROPIC_TEMPERATURE: float = 1.0
     
     # OpenAI Configuration (if needed as fallback)
@@ -54,4 +54,4 @@ class Settings(BaseSettings):
 @lru_cache()
 def get_settings() -> Settings:
     """Returns cached settings instance"""
-    return Settings() 
+    return Settings()

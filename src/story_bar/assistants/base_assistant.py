@@ -2,8 +2,8 @@ from typing import Optional, Dict, List, Any
 from pydantic import BaseModel
 from openai import OpenAI
 import time
-from src.utils.file_utils import read_json, write_json, read_text, write_text
-
+from langgraph import Graph, Node
+from src.story_bar.tools.file_tools import FileWriterNode, FileReaderNode
 class AgentState(BaseModel):
     """State for agent execution"""
     messages: List = []
@@ -11,14 +11,31 @@ class AgentState(BaseModel):
     document_status: Dict[str, str] = {}  # Track document paths and statuses
 
 class Agent:
-    def __init__(self, assistant_id: str):
+    def __init__(self, assistant_id: str = None, tools: Optional[Dict[str, Any]] = None):
         self.client = OpenAI()
-        self.assistant = self.get_assistant(assistant_id)
-        self.name = self.assistant.name
-        self.instructions = self.assistant.instructions
-        self.tools = self.assistant.tools
-        self.model = self.assistant.model
+        self.tools = tools or {}
+        self.file_manager = FileManager()
         
+        # Add file tools by default
+        self.tools['file_writer'] = FileWriterNode()
+        self.tools['file_reader'] = FileReaderNode()
+        
+        if assistant_id:
+            self.assistant = self.get_assistant(assistant_id)
+        else:
+            raise ValueError("An assistant_id must be provided to retrieve an existing assistant.")
+        
+        self.session_context = {}
+       
+        
+    def update_tools(self):
+        """Update assistant's tools"""
+        tools = [tool.to_openai_function() for tool in self.tools.values()]
+        self.assistant = self.client.beta.assistants.update(
+            assistant_id=self.assistant.id,
+            tools=tools
+        )
+
     def get_assistant(self, assistant_id: str):
         """Retrieve an existing OpenAI assistant using its ID"""
         try:
@@ -34,12 +51,17 @@ class Agent:
         if not state.thread_id:
             thread = self.client.beta.threads.create()
             state.thread_id = thread.id
+            # Initialize session directory
+            self.file_manager.get_session_dir(state.thread_id)
+
+        # Add context to message
+        context_message = f"Session Context:\n{json.dumps(self.session_context, indent=2)}\n\nUser Message:\n{user_message}"
 
         # Add user message to thread
         self.client.beta.threads.messages.create(
             thread_id=state.thread_id,
             role="user",
-            content=user_message
+            content=context_message
         )
 
         # Run the assistant
@@ -97,4 +119,8 @@ class Agent:
 
     def update_document_status(self, state: AgentState, doc_name: str, path: str):
         """Update the status of a document in the state."""
-        state.document_status[doc_name] = path 
+        state.document_status[doc_name] = path
+
+    def update_session_context(self, context: Dict[str, Any]):
+        """Update the shared session context"""
+        self.session_context.update(context)
