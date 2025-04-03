@@ -1,0 +1,28 @@
+{
+    "documentType": "Cinematography Notes - Suspense Scene",
+    "visualElements": {
+        "cinematography": {
+            "cameraShots": [
+                "DUTCH ANGLES - Create disorientation",
+                "SLOW PUSH IN - Build tension",
+                "RACK FOCUS - Reveal threats or details"
+            ],
+            "lighting": [
+                "HIGH CONTRAST lighting to create shadows",
+                "MOTIVATED LIGHT sources to create uncertainty"
+            ],
+            "movement": [
+                "HANDHELD for tension when appropriate",
+                "SLOW CREEPING moves to build anticipation"
+            ]
+        }
+    },
+    "soundElements": {
+        "soundEffects": [
+            {
+                "effectType": "AMBIENT",
+                "description": "Low frequency sounds to create unease. Subtle environmental threats"
+            }
+        ]
+    }
+}

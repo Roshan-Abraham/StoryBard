@@ -1,0 +1,19 @@
+{
+    "characterDescriptions": {
+        "title": "Character Descriptions",
+        "characters": [
+            {
+                "character": "Protagonist",
+                "description": "[Full name, age, physical description, personality traits, desires, and character arc]"
+            },
+            {
+                "character": "Antagonist",
+                "description": "[Full name, age, physical description, personality traits, motivations]"
+            },
+            {
+                "character": "Supporting Characters",
+                "description": "[Full name, age, physical description, personality traits, role in the story for each supporting character]"
+            }
+        ]
+    }
+}

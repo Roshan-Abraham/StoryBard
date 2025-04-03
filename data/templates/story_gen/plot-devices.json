@@ -1,0 +1,28 @@
+{
+    "plotDevices": {
+        "title": "Plot Devices",
+        "devices": [
+            {
+                "device": "Inciting Incident",
+                "description": "[The event that initiates the main conflict]"
+            },
+            {
+                "device": "Irony",
+                "types": [
+                    {
+                        "type": "Dramatic Irony",
+                        "description": "[when the audience has more information than a character]"
+                    },
+                    {
+                        "type": "Situational Irony",
+                        "description": "[when what is expected to happen is the opposite of what actually happens]"
+                    },
+                    {
+                        "type": "Verbal Irony",
+                        "description": "[when a character says one thing but means another]"
+                    }
+                ]
+            }
+        ]
+    }
+}

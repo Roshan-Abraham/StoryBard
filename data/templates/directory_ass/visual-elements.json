@@ -1,0 +1,94 @@
+
+{
+    "visualElements": {
+        "title": "Visual Elements",
+        "description": "Details of the visual aspects of the screenplay that contribute to the story's setting, characters, and atmosphere.",
+        "elements": [
+            {
+                "element": "Setting",
+                "description": "**The physical location where the story takes place, described in scene headings or sluglines. This includes interior (INT.) and exterior (EXT.) locations, and can specify the time of day.**",
+                "params": {
+                    "locationType": ["INT", "EXT", "INT/EXT"],
+                    "timeOfDay": ["DAY", "NIGHT", "MORNING", "EVENING", "CONTINUOUS", "MOMENTS LATER"],
+                    "details": "Additional descriptions using multiple hyphens, subheadings, or specific geographical information. **Time of day should only be specified if integral to the story**."
+                }
+            },
+            {
+                "element": "Costumes",
+                "description": "**The clothing and accessories worn by characters, which convey information about their identity, social status, and the time period.**",
+                "params": {
+                    "character": "Character name or ID",
+                    "description": "Detailed notes on clothing, accessories, hair, makeup and how they convey character traits or story elements.",
+                    "timePeriod": "The era or specific time the costumes represent."
+                }
+            },
+            {
+                "element": "Props",
+                "description": "**Objects used by characters that are significant to the plot, and are often capitalized in action lines in the script to emphasize their importance.**",
+                "params": {
+                    "objectName": "Name of the prop",
+                    "description": "Specific details about the prop, its appearance and its significance to the story.",
+                    "useCase": "How and when the prop is used."
+                }
+            },
+            {
+                "element": "Cinematography",
+                "description": "**The way the story is visually captured through camera angles, lighting, and movement. Includes camera shots, angles, and movements.**",
+                "params": {
+                    "cameraShots": ["CLOSE UP", "WIDE SHOT", "MEDIUM SHOT","POINT OF VIEW SHOT","OVER THE SHOULDER SHOT"],
+                    "cameraAngle": ["HIGH ANGLE", "LOW ANGLE", "DUTCH ANGLE", "EYE LEVEL"],
+                    "lighting": ["HIGH KEY", "LOW KEY", "NATURAL LIGHT", "ARTIFICIAL LIGHT"],
+                    "movement": ["PAN", "TILT", "TRACK", "ZOOM"] ,
+                    "notes": "Additional details, including when to use specific shots and when to avoid them. **Screenwriters should generally avoid specifying shots, unless also directing.**"
+                }
+            },
+            {
+                "element": "Special Effects",
+                "description": "**Techniques used to create visual illusions or enhance the story, including practical and visual effects (VFX).**",
+                "params": {
+                    "effectType": ["PRACTICAL", "VISUAL", "MAKEUP", "HAIR","SFX"],
+                    "description": "Specifics about what the special effect is supposed to achieve and how it appears on screen.",
+                    "timePeriod": "If the special effects are meant to suggest a particular time period."
+                }
+            }
+        ]
+    },
+    "cinematography": {
+        "title": "Cinematography",
+        "description": "Details of how the story is visually captured through camera angles, lighting, and movement.",
+        "elements": [
+            {
+                "element": "Camera Shots",
+                "description": "Different types of camera shots used to capture the scene.",
+                "params": {
+                    "types": ["CLOSE UP", "WIDE SHOT", "MEDIUM SHOT", "POINT OF VIEW SHOT", "OVER THE SHOULDER SHOT"],
+                    "notes": "Additional details on when to use specific shots and their impact on the scene."
+                }
+            },
+            {
+                "element": "Camera Angles",
+                "description": "Different types of camera angles used to capture the scene.",
+                "params": {
+                    "types": ["HIGH ANGLE", "LOW ANGLE", "DUTCH ANGLE", "EYE LEVEL"],
+                    "notes": "Additional details on when to use specific angles and their impact on the scene."
+                }
+            },
+            {
+                "element": "Lighting",
+                "description": "Different types of lighting used to create the desired mood and atmosphere.",
+                "params": {
+                    "types": ["HIGH KEY", "LOW KEY", "NATURAL LIGHT", "ARTIFICIAL LIGHT"],
+                    "notes": "Additional details on when to use specific lighting techniques and their impact on the scene."
+                }
+            },
+            {
+                "element": "Camera Movement",
+                "description": "Different types of camera movements used to capture the scene.",
+                "params": {
+                    "types": ["PAN", "TILT", "TRACK", "ZOOM"],
+                    "notes": "Additional details on when to use specific movements and their impact on the scene."
+                }
+            }
+        ]
+    }
+}

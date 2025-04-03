@@ -1,0 +1,64 @@
+{
+    "imageDescription": {
+        "title": "Image Description Template",
+        "description": "Structured template for describing visual scene elements and camera details",
+        "technicalElements": {
+            "camera": {
+                "shot": {
+                    "type": "",
+                    "options": ["CLOSE UP", "WIDE SHOT", "MEDIUM SHOT", "POINT OF VIEW SHOT", "OVER THE SHOULDER SHOT"],
+                    "notes": "Specify the primary framing of the image"
+                },
+                "angle": {
+                    "type": "",
+                    "options": ["HIGH ANGLE", "LOW ANGLE", "DUTCH ANGLE", "EYE LEVEL"],
+                    "notes": "How the camera is positioned relative to the subject"
+                },
+                "lighting": {
+                    "type": "",
+                    "options": ["HIGH KEY", "LOW KEY", "NATURAL LIGHT", "ARTIFICIAL LIGHT"],
+                    "description": "Specify the lighting setup and mood"
+                }
+            }
+        },
+        "composition": {
+            "setting": {
+                "locationType": "",
+                "timeOfDay": "",
+                "weatherConditions": "",
+                "environmentDetails": ""
+            },
+            "subjects": {
+                "mainFocus": "",
+                "backgroundElements": [],
+                "foregroundElements": []
+            },
+            "visualElements": {
+                "props": [{
+                    "name": "",
+                    "description": "",
+                    "significance": ""
+                }],
+                "costumes": [{
+                    "character": "",
+                    "description": "",
+                    "significance": ""
+                }],
+                "specialEffects": {
+                    "type": "",
+                    "description": ""
+                }
+            }
+        },
+        "mood": {
+            "intendedEmotion": "",
+            "colorPalette": "",
+            "atmosphericElements": ""
+        },
+        "narrativeContext": {
+            "sceneContext": "",
+            "storySignificance": "",
+            "symbolism": ""
+        }
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "documentType": "Director's Notes - Opening Scene",
+    "sceneNumber": "1",
+    "sceneHeading": "[Opening Scene Location]",
+    "purpose": "Establish the world and hook the audience",
+    "emotionalImpact": {
+        "intendedEmotion": "Intrigue/Mystery/Wonder",
+        "techniques": [
+            {
+                "technique": "Visual Hook",
+                "description": "Start with a striking image that captures attention. Example: A wide shot of a dystopian cityscape or an intimate close-up of a character in distress"
+            },
+            {
+                "technique": "World Building",
+                "description": "Introduce key visual elements that establish the setting and tone"
+            }
+        ]
+    },
+    "characterNotes": [
+        {
+            "character": "Protagonist",
+            "performanceNotes": "Introduce character's key traits through actions rather than dialogue",
+            "dialogue": "Minimal but impactful. First lines should be memorable"
+        }
+    ],
+    "blockingNotes": "Movement should guide the audience's eye through the world while revealing key story elements",
+    "notes": "Focus on visual storytelling. Every frame should provide information about the world and characters"
+}

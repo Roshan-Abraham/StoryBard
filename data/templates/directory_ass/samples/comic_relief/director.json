@@ -1,0 +1,28 @@
+{
+    "documentType": "Director's Notes - Comic Relief",
+    "sceneNumber": "[Scene Number]",
+    "sceneHeading": "[Light Scene Location]",
+    "purpose": "Release built-up tension through humor",
+    "emotionalImpact": {
+        "intendedEmotion": "Amusement/Relief",
+        "techniques": [
+            {
+                "technique": "Timing",
+                "description": "Quick pace for verbal comedy, measured beats for physical comedy"
+            },
+            {
+                "technique": "Contrast",
+                "description": "Play with status differences between characters"
+            }
+        ]
+    },
+    "characterNotes": [
+        {
+            "character": "Comic Character",
+            "performanceNotes": "Keep it natural, avoid overplaying. Let humor come from situation",
+            "dialogue": "Sharp timing on punchlines, natural delivery on setup"
+        }
+    ],
+    "blockingNotes": "Use space for physical comedy. Create opportunities for visual gags",
+    "notes": "Should feel organic to story, not forced. Maintain story world integrity"
+}

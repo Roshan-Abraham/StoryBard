@@ -1,0 +1,14 @@
+{
+    "documentType": "Theme Tracker",
+    "themes": [
+        {
+            "theme": "Theme Name",
+            "description": "A brief description of the theme, explaining its significance and role in the story.",
+            "instances": [
+                "Example of how this theme is portrayed in the story.",
+                "Another example of this theme in action.",
+                "Additional instance demonstrating the theme."
+            ]
+        }
+    ]
+}

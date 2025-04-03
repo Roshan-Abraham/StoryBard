@@ -168,6 +168,12 @@ if __name__ == "__main__":
     save_graph_visualization(graph)
     print("Graph has been created and saved.")
     
+    # Display the graph visualization
+    try:
+        display(Image("story_graph.png"))
+    except Exception as e:
+        print(f"Error displaying graph: {e}")
+    
     # Print graph structure
     graph_structure = graph.get_graph()
     print(f"Nodes: {list(graph_structure.nodes)}")

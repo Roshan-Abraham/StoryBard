@@ -67,16 +67,14 @@ class ImageGenerator:
         mood = feedback.get("mood", "neutral")
         adjustments = feedback.get("adjustments", [])
         
-        prompt_parts = [base_prompt]
+        prompt_parts = [
+            base_prompt,
+            f"Style: {style}" if style else "",
+            f"Mood: {mood}" if mood else "",
+            f"Additional details: {', '.join(adjustments)}" if adjustments else ""
+        ]
         
-        if style:
-            prompt_parts.append(f"Style: {style}")
-        if mood:
-            prompt_parts.append(f"Mood: {mood}")
-        if adjustments:
-            prompt_parts.append(f"Additional details: {', '.join(adjustments)}")
-            
-        prompt = ". ".join(prompt_parts)
+        prompt = ". ".join(filter(None, prompt_parts))
         self.logger.info(f"Created enhanced prompt: {prompt}")
         return prompt
 
@@ -84,8 +82,6 @@ class ImageGenerator:
         """Refines the prompt with specific artistic instructions."""
         refinements = []
         
-        if "style" in instructions:
-            refinements.append(f"in the style of {instructions['style']}")
         if "lighting" in instructions:
             refinements.append(f"with {instructions['lighting']} lighting")
         if "perspective" in instructions:

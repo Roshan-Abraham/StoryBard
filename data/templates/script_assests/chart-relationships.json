@@ -1,0 +1,44 @@
+{
+    "documentType": "Relationship Chart",
+    "characters": [
+        "Michael Corleone",
+        "Vito Corleone",
+        "Sonny Corleone",
+        "Fredo Corleone",
+        "Kay Adams"
+    ],
+    "relationships": [
+        {
+            "from": "Michael Corleone",
+            "to": "Vito Corleone",
+            "nature": "Respectful son, heir apparent",
+            "strength": "Strong",
+            "type": "evolving",
+            "symbiotic": "Initially, anti-symbiotic, becomes symbiotic"
+        },
+        {
+            "from": "Michael Corleone",
+            "to": "Sonny Corleone",
+            "nature": "Rivalrous brothers",
+            "strength": "Moderate",
+            "type": "anti-symbiotic",
+            "symbiotic": "anti-symbiotic"
+        },
+        {
+            "from": "Michael Corleone",
+            "to": "Fredo Corleone",
+            "nature": "Disdainful brothers",
+            "strength": "Weak",
+            "type": "anti-symbiotic",
+            "symbiotic": "anti-symbiotic"
+        },
+        {
+            "from": "Michael Corleone",
+            "to": "Kay Adams",
+            "nature": "Romantic, then estranged",
+            "strength": "Strong, then weak",
+            "type": "evolving",
+            "symbiotic": "Initially symbiotic, later anti-symbiotic"
+        }
+    ]
+}

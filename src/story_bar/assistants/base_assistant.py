@@ -1,33 +1,42 @@
-from typing import Optional, Dict, List, Any
+from typing import Optional, Dict, List, Any, TypedDict, Annotated
 from pydantic import BaseModel
 from openai import OpenAI
 import time
-from langgraph import Graph, Node
-from src.story_bar.tools.file_tools import FileWriterNode, FileReaderNode
-class AgentState(BaseModel):
-    """State for agent execution"""
-    messages: List = []
-    thread_id: Optional[str] = None
-    document_status: Dict[str, str] = {}  # Track document paths and statuses
+from typing import Literal
+from langgraph.graph import MessagesState
+# from langchain_core.messages import BaseMessage, ToolMessage, SystemMessage, HumanMessage
+from langgraph.graph import StateGraph
+from langgraph.graph.message import add_messages
+from story_bar.tools.file_tools import FileWriterNode, FileReaderNode
+from story_bar.config import get_settings
+
+class AgentState(MessagesState, TypedDict):
+    """Base state schema for assistants"""
+    thread_id: Optional[str]
+    tool_results: Dict[str, Any]
+    context: Dict[str, Any]
 
 class Agent:
-    def __init__(self, assistant_id: str = None, tools: Optional[Dict[str, Any]] = None):
+    def __init__(self, assistant_name: str, tools: Optional[Dict[str, Any]] = None):
         self.client = OpenAI()
         self.tools = tools or {}
-        self.file_manager = FileManager()
+        self.settings = get_settings()
+        self.assistant = self._setup_assistant(assistant_name)
+        self.session_context = {}
         
         # Add file tools by default
         self.tools['file_writer'] = FileWriterNode()
         self.tools['file_reader'] = FileReaderNode()
-        
-        if assistant_id:
-            self.assistant = self.get_assistant(assistant_id)
-        else:
-            raise ValueError("An assistant_id must be provided to retrieve an existing assistant.")
-        
-        self.session_context = {}
-       
-        
+
+    def __call__(self, state: Dict[str, Any]) -> Dict[str, Any]:
+        """Make the agent callable as a node function"""
+        response = self.run(state)
+        return {
+            "messages": response["messages"],
+            "thread_id": response["thread_id"],
+            "context": self.session_context
+        }
+
     def update_tools(self):
         """Update assistant's tools"""
         tools = [tool.to_openai_function() for tool in self.tools.values()]
@@ -47,34 +56,33 @@ class Agent:
     def run(self, state: AgentState, user_message: str, additional_instructions: Optional[str] = None) -> Dict[str, Any]:
         """Run the assistant with the given message"""
         
-        # Create thread if it doesn't exist
-        if not state.thread_id:
-            thread = self.client.beta.threads.create()
-            state.thread_id = thread.id
-            # Initialize session directory
-            self.file_manager.get_session_dir(state.thread_id)
-
-        # Add context to message
-        context_message = f"Session Context:\n{json.dumps(self.session_context, indent=2)}\n\nUser Message:\n{user_message}"
-
-        # Add user message to thread
-        self.client.beta.threads.messages.create(
-            thread_id=state.thread_id,
-            role="user",
-            content=context_message
-        )
-
-        # Run the assistant
-        run = self.client.beta.threads.runs.create(
-            thread_id=state.thread_id,
-            assistant_id=self.assistant.id,
-            instructions=additional_instructions or self.instructions
-        )
+        # Create thread and run if it doesn't exist
+        if not state["thread_id"]:
+            run = self.client.beta.threads.create_and_run(
+                assistant_id=self.assistant.id,
+                thread={
+                    "messages": [
+                        {"role": "user", "content": user_message}
+                    ]
+                },
+                additional_instructions=additional_instructions or self.instructions
+            )
+            state["thread_id"] = run.thread_id
+        else:
+            # Add user message to thread and create a run
+            run = self.client.beta.threads.runs.create(
+                thread_id=state["thread_id"],
+                assistant_id=self.assistant.id,
+                additional_messages=[
+                    {"role": "user", "content": user_message}
+                ],
+                additional_instructions=additional_instructions or self.instructions
+            )
 
         # Wait for completion
         while True:
             run_status = self.client.beta.threads.runs.retrieve(
-                thread_id=state.thread_id,
+                thread_id=state["thread_id"],
                 run_id=run.id
             )
             if run_status.status == "completed":
@@ -85,15 +93,15 @@ class Agent:
 
         # Get messages
         messages = self.client.beta.threads.messages.list(
-            thread_id=state.thread_id
+            thread_id=state["thread_id"]
         )
         
         # Update state with latest messages
-        state.messages = messages.data
+        state["messages"] = messages.data
         
         return {
             'messages': messages.data,
-            'thread_id': state.thread_id
+            'thread_id': state["thread_id"]
         }
 
     def handle_tool_calls(self, messages: List[Dict]) -> Optional[Dict]:
@@ -119,7 +127,7 @@ class Agent:
 
     def update_document_status(self, state: AgentState, doc_name: str, path: str):
         """Update the status of a document in the state."""
-        state.document_status[doc_name] = path
+        state["document_status"][doc_name] = path
 
     def update_session_context(self, context: Dict[str, Any]):
         """Update the shared session context"""

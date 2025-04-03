@@ -1,0 +1,47 @@
+{
+    "documentType": "Symbolism Tracker",
+    "symbols": [
+        {
+            "symbol": "[Enter the symbolic object, place, or concept]",
+            "meaning": "[Describe what the symbol represents in the story, include reference if applicable]",
+            "characterAssociation": "[List character(s) most connected to this symbol]",
+            "thematicAssociation": [
+                "[Theme 1]",
+                "[Theme 2]",
+                "[Theme 3]"
+            ],
+            "instances": [
+                "[Describe specific scene or moment where symbol appears]",
+                "[Add additional instances as needed]"
+            ]
+        },
+        {
+            "symbol": "[Example: Red Rose]",
+            "meaning": "[Example: Symbolizes passionate love, sacrifice, or beauty. Classical symbol in literature]",
+            "characterAssociation": "[Example: The romantic leads, or a character associated with beauty/passion]",
+            "thematicAssociation": [
+                "[Example: Love]",
+                "[Example: Beauty]",
+                "[Example: Mortality]"
+            ],
+            "instances": [
+                "[Example: Garden scene where character first discovers love]",
+                "[Example: Final scene where rose wilts, symbolizing end of relationship]"
+            ]
+        },
+        {
+            "symbol": "[Example: Storm]",
+            "meaning": "[Example: Represents internal conflict, turmoil, or approaching danger]",
+            "characterAssociation": "[Example: Protagonist during their darkest moment]",
+            "thematicAssociation": [
+                "[Example: Conflict]",
+                "[Example: Nature's power]",
+                "[Example: Emotional turbulence]"
+            ],
+            "instances": [
+                "[Example: Major confrontation scene during thunderstorm]",
+                "[Example: Character's moment of crisis coincides with brewing storm]"
+            ]
+        }
+    ]
+}

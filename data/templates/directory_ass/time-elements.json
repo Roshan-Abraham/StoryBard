@@ -1,0 +1,15 @@
+{
+    "useOfTime": {
+        "title": "Use of Time",
+        "timeElements": [
+            {
+                "element": "Transitions",
+                "description": "[How the movie moves between scenes, including cuts, dissolves, or montages]"
+            },
+            {
+                "element": "Flashbacks/Flashforwards",
+                "description": "[Moments where the story shifts to the past or future]"
+            }
+        ]
+    }
+}

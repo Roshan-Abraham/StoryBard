@@ -37,6 +37,15 @@ class Settings(BaseSettings):
     STORYBOARD_TEMPERATURE: float = 0.9
     DIRECTOR_TEMPERATURE: float = 0.6
     
+    # Assistant IDs Configuration
+    ASSISTANT_IDS: Dict[str, str] = {
+        "story_genesis": "asst_mqqVT5RAnw0nC8o7EwC73NSv",
+        "script_consistency": "asst_DSFL2jGnolsgorAoiUjuf4eP",
+        "metadata_simulator": "assistant_metadata_simulator_id",
+        "storyboard": "assistant_storyboard_id",
+        "director_cinematographer": "asst_IpFohBsKLLtvxKKcN8yYplPc",
+    }
+    
     # Workflow Settings
     MAX_ITERATIONS: int = 10
     TIMEOUT_SECONDS: int = 300

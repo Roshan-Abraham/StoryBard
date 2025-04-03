@@ -1,5 +1,5 @@
 import pytest
-from src.workflows.main_graph import WorkflowState, create_workflow, run_workflow
+from workflows.main_graph import WorkflowState, create_workflow, run_workflow
 import uuid
 
 def test_workflow_initialization():

@@ -1,0 +1,36 @@
+{
+    "emotionalImpact": {
+        "title": "Emotional Impact",
+        "description": "Details on how the screenplay evokes emotions in the audience, including specific techniques and devices used.",
+        "impact": {
+            "emotions": [
+                "SUSPENSE",
+                "HUMOR",
+                "SADNESS",
+                "JOY",
+                "FEAR",
+                "ANGER",
+                "ROMANCE"
+            ],
+            "techniques": [
+                {
+                    "technique": "Irony",
+                    "description": "**Irony, including dramatic, verbal, and situational, to create conflict, suspense, and complexity, enhancing the story's emotional depth.**"
+                },
+                {
+                    "technique": "Rule of Three",
+                    "description": "**Using the rule of three to enhance emotional beats in the story and to make concepts or situations more understandable or resonant.**"
+                },
+                {
+                    "technique": "Character Arcs",
+                    "description": "**The emotional journey of characters as they develop and change through the story, particularly their positive, negative or flat arcs.**"
+                },
+                {
+                    "technique": "Montage",
+                    "description": "**Using montages to compress time and show the emotional impact of events on the characters and the story.**"
+                }
+            ],
+            "notes": "Additional notes on specific moments that evoke strong emotions, and the overall emotional effect the screenplay is meant to have on the viewer."
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "moviePlotOutline": {
+        "title": "[Movie Title]",
+        "logline": "[A one-sentence summary of the plot]",
+        "characterArc": {
+            "ignition": "[State of the character at the beginning of the story.]",
+            "shiftGears": "[The event which causes the character to see a different side of themselves]",
+            "fastLane": "[The character is now in a new lane, and speeding up]",
+            "pitStop": "[The character reassesses their role and identity.]",
+            "floorIt": "[The character embraces their new identity and trajectory]",
+            "crashAndBurn": "[A climactic event where the old life of the character is destroyed]",
+            "finishLine": "[The character emerges transformed]"
+        },
+        "theme": "[The main idea or message the movie explores]"
+    }
+}

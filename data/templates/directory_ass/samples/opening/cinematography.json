@@ -1,0 +1,23 @@
+{
+    "documentType": "Cinematography Notes - Opening Scene",
+    "visualElements": {
+        "cinematography": {
+            "cameraShots": [
+                "ESTABLISHING SHOT - Set the scale and scope",
+                "SLOW PUSH IN - Draw audience into the world",
+                "REVEALING SHOTS - Gradually show important elements"
+            ],
+            "movement": [
+                "Fluid, confident camera movement to establish production value",
+                "Strategic use of steadicam for smooth exploration of space"
+            ],
+            "notes": "Every shot should reveal new information about the world and story"
+        }
+    },
+    "soundElements": {
+        "music": {
+            "musicType": "NON-DIEGETIC",
+            "description": "Theme music introduction, establish tone and genre expectations"
+        }
+    }
+}

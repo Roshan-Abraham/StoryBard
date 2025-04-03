@@ -1,28 +1,29 @@
 from dataclasses import dataclass
-from typing import Dict, List, Literal, Optional, TypedDict
-from openai.types.beta.threads import ThreadMessage
+from typing import Dict, List, Literal, Optional, TypedDict, Any
 from langgraph.graph import END, START, StateGraph
 import uuid
-from src.story_bar.tools.file_tools import FileWriterNode, FileReaderNode
-from src.story_bar.assistants.constants import ASSISTANT_IDS
-from src.story_bar.assistants.base_assistant import Agent, AgentState
-from src.story_bar.assistants.directory_planner import create_director_cinematographer_assistant
-from src.story_bar.assistants.meta_simulator import create_metadata_simulator_assistant
-from src.story_bar.assistants.script_consistancy import create_script_consistency_assistant
-from src.story_bar.assistants.storyboard_generator import create_storyboard_assistant
-from src.story_bar.assistants.story_genesis import create_script_genesis_assistant
+from story_bar.tools.file_tools import FileWriterNode, FileReaderNode
+from story_bar.assistants.base_assistant import Agent, AgentState
+from story_bar.assistants.directory_planner import create_director_cinematographer_assistant
+from story_bar.assistants.meta_simulator import create_metadata_simulator_assistant
+from story_bar.assistants.script_consistancy import create_script_consistency_assistant
+from story_bar.assistants.storyboard_generator import create_storyboard_assistant
+from story_bar.assistants.story_genesis import create_script_genesis_assistant
+from openai import OpenAI
+from story_bar.config import get_settings
+from typing import Annotated
+from langgraph.graph.message import add_messages
+from langgraph.graph import MessagesState
 
-@dataclass
-class WorkflowState(TypedDict):
-    """State definition for the workflow"""
-    messages: List[ThreadMessage]
+class WorkflowState(MessagesState, TypedDict):
+    """Overall workflow state"""
     current_assistant: str
-    agent_states: Dict[str, AgentState]  # Track thread states for each assistant
-    feedback: Dict
-    session_id: str  # Add session ID to track conversation context
-    thread_id: Optional[str] = None  # OpenAI thread ID
-    next_assistant: Optional[str] = None
-    shared_context: Dict[str, Any] = {}  # Shared context between assistants
+    agent_states: Dict[str, AgentState]
+    feedback: Dict[str, Any]
+    session_id: str
+    thread_id: Optional[str]
+    next_assistant: Optional[str]
+    shared_context: Dict[str, Any]
 
 class AssistantTransition:
     """Handles transitions between assistants"""
@@ -42,10 +43,7 @@ class AssistantTransition:
             **state,
             "messages": [
                 *state["messages"],
-                ThreadMessage(
-                    role="system",
-                    content=transition_content
-                )
+                {"role": "system", "content": transition_content}
             ],
             "current_assistant": "pending_transition",
             "next_assistant": state.get("feedback", {}).get("next_assistant")
@@ -54,26 +52,13 @@ class AssistantTransition:
 class WorkflowManager:
     """Manages the AI workflow and transitions between assistants"""
     
-    ASSISTANT_NODES = {
-        "story_genesis": create_script_genesis_assistant,
-        "script_consistency": create_script_consistency_assistant,
-        "metadata_simulator": create_metadata_simulator_assistant,
-        "storyboard": create_storyboard_assistant,
-        "director_cinematographer": create_director_cinematographer_assistant,
-    }
-
-    # Define the allowed transitions between assistants
-    ALLOWED_TRANSITIONS = {
-        "story_genesis": ["script_consistency"],
-        "script_consistency": ["metadata_simulator", "storyboard"],
-        "metadata_simulator": ["script_consistency", "storyboard", "director_cinematographer"],
-        "storyboard": ["script_consistency", "director_cinematographer"],
-        "director_cinematographer": ["script_consistency", "storyboard"]
-    }
-
     def __init__(self):
-        self.builder = StateGraph(WorkflowState)
+        self.builder = StateGraph(
+            WorkflowState,
+            config_schema={"recursion_limit": int}
+        )
         self.shared_tools = self._initialize_shared_tools()
+        self.settings = get_settings()
         self._setup_nodes()
         self._setup_edges()
         
@@ -88,8 +73,8 @@ class WorkflowManager:
     def _setup_nodes(self):
         """Setup all nodes in the workflow graph"""
         # Add main assistant nodes with shared tools
-        for name, creator in self.ASSISTANT_NODES.items():
-            assistant = creator()
+        for name, assistant_id in self.settings.ASSISTANT_IDS.items():
+            assistant = Agent(assistant_name=name)
             # Inject shared tools
             assistant.tools.update(self.shared_tools)
             self.builder.add_node(name, assistant)
@@ -97,14 +82,15 @@ class WorkflowManager:
 
     def _ensure_session_continuity(self, state: WorkflowState) -> WorkflowState:
         """Ensure session continuity between assistant transitions"""
+        client = OpenAI()
+        
         if not state["thread_id"]:
             # Initialize OpenAI thread if not exists
-            client = OpenAI()
             thread = client.beta.threads.create()
             state["thread_id"] = thread.id
         
         # Update agent states with thread_id
-        for assistant_name in self.ASSISTANT_NODES:
+        for assistant_name in self.settings.ASSISTANT_IDS:
             if assistant_name not in state["agent_states"]:
                 state["agent_states"][assistant_name] = AgentState(
                     thread_id=state["thread_id"],
@@ -131,7 +117,7 @@ class WorkflowManager:
         self.builder.add_edge(START, "story_genesis")
         
         # Setup transitions for each assistant
-        for name in self.ASSISTANT_NODES:
+        for name in self.settings.ASSISTANT_IDS:
             # Main flow edge
             self.builder.add_edge(name, f"leave_{name}")
             
@@ -139,6 +125,22 @@ class WorkflowManager:
             self.builder.add_conditional_edges(
                 f"leave_{name}",
                 self._route_after_leave,
+                [*self.ALLOWED_TRANSITIONS[name], END]
+            )
+
+    def _setup_transitions(self):
+        """Setup transitions between assistants"""
+        for name in self.settings.ASSISTANT_IDS:
+            def transition_fn(state: Dict[str, Any]) -> Dict[str, Any]:
+                next_assistant = state.get("next_assistant")
+                return {
+                    "current_assistant": next_assistant,
+                    "messages": state["messages"]
+                }
+            
+            self.builder.add_conditional_edges(
+                name,
+                transition_fn,
                 [*self.ALLOWED_TRANSITIONS[name], END]
             )
 
@@ -186,6 +188,7 @@ def run_workflow(initial_state: WorkflowState):
 # Example usage
 if __name__ == "__main__":
     from IPython.display import Image, display
+
     
     # Initialize workflow manager
     manager = WorkflowManager()

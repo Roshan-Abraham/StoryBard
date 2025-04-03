@@ -1,0 +1,75 @@
+{
+    "documentType": "Conversation Log",
+    "conversations": [
+        {
+            "scene": "Description of the scene",
+            "characters": [
+                "Character 1",
+                "Character 2"
+            ],
+            "dialogueSummary": "Brief summary of the dialogue that takes place in the scene.",
+            "keyThemes": [
+                "Theme 1",
+                "Theme 2",
+                "Theme 3"
+            ],
+            "ironicElements": {
+                "verbalIrony": "Description of any verbal irony present",
+                "situationalIrony": "Description of any situational irony present",
+                "dramaticIrony": "Description of any dramatic irony present"
+            },
+            "emotionalExchange": [
+                "Emotion 1",
+                "Emotion 2"
+            ],
+            "subtext": "Description of the underlying meaning or subtext of the scene."
+        },
+        {
+            "scene": "Description of the scene",
+            "characters": [
+                "Character 1",
+                "Character 2"
+            ],
+            "dialogueSummary": "Brief summary of the dialogue that takes place in the scene.",
+            "keyThemes": [
+                "Theme 1",
+                "Theme 2",
+                "Theme 3"
+            ],
+            "ironicElements": {
+                "verbalIrony": "Description of any verbal irony present",
+                "situationalIrony": "Description of any situational irony present",
+                "dramaticIrony": "Description of any dramatic irony present"
+            },
+            "emotionalExchange": [
+                "Emotion 1",
+                "Emotion 2"
+            ],
+            "subtext": "Description of the underlying meaning or subtext of the scene."
+        },
+        {
+            "scene": "Description of the scene",
+            "characters": [
+                "Character 1",
+                "Character 2",
+                "Character 3"
+            ],
+            "dialogueSummary": "Brief summary of the dialogue that takes place in the scene.",
+            "keyThemes": [
+                "Theme 1",
+                "Theme 2",
+                "Theme 3"
+            ],
+            "ironicElements": {
+                "verbalIrony": "Description of any verbal irony present",
+                "situationalIrony": "Description of any situational irony present",
+                "dramaticIrony": "Description of any dramatic irony present"
+            },
+            "emotionalExchange": [
+                "Emotion 1",
+                "Emotion 2"
+            ],
+            "subtext": "Description of the underlying meaning or subtext of the scene."
+        }
+    ]
+}

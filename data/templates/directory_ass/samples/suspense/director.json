@@ -1,0 +1,28 @@
+{
+    "documentType": "Director's Notes - Suspense Scene",
+    "sceneNumber": "[Scene Number]",
+    "sceneHeading": "[Tense Location]",
+    "purpose": "Build tension and create anticipation",
+    "emotionalImpact": {
+        "intendedEmotion": "Anxiety/Fear/Dread",
+        "techniques": [
+            {
+                "technique": "Pacing",
+                "description": "Start slow, gradually increase tempo. Use silence and pauses strategically"
+            },
+            {
+                "technique": "Misdirection",
+                "description": "Plant false leads and red herrings through background action"
+            }
+        ]
+    },
+    "characterNotes": [
+        {
+            "character": "Threatened Character",
+            "performanceNotes": "Show subtle signs of awareness and anxiety. Small reactions to sounds/movements",
+            "dialogue": "Keep dialogue minimal. Use breathing and small vocalizations"
+        }
+    ],
+    "blockingNotes": "Use confined spaces and blocked escape routes to create claustrophobia",
+    "notes": "Build tension through anticipation rather than action. Less is more"
+}

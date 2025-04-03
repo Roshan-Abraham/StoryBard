@@ -1,6 +1,8 @@
 from typing import List, Dict, Optional
 from dataclasses import dataclass
 import re
+from openai import OpenAI
+import os
 
 @dataclass
 class CleaningResult:
@@ -12,6 +14,13 @@ class CleaningResult:
 class ValidationResult:
     is_valid: bool
     errors: List[str]
+
+@dataclass
+class PromptResult:
+    cleaned_text: str
+    structured_data: Dict
+    scene_details: Optional[Dict] = None
+    validation_points: List[str] = None
 
 class PromptCleaner:
     """Handles cleaning and validation of prompts"""
@@ -26,6 +35,12 @@ class PromptCleaner:
             'structure': self._validate_structure,
             'content': self._validate_content,
             'length': self._validate_length
+        }
+        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        self.prompt_templates = {
+            'scene': self._load_template('scene_prompt.txt'),
+            'character': self._load_template('character_prompt.txt'),
+            'validation': self._load_template('validation_prompt.txt')
         }
 
     def clean_prompt(self, prompt: str) -> CleaningResult:
@@ -57,6 +72,59 @@ class PromptCleaner:
             is_valid=len(errors) == 0,
             errors=errors
         )
+
+    def process_creative_prompt(self, prompt: str, prompt_type: str = 'scene') -> PromptResult:
+        """Process creative prompt through LLM for structured output"""
+        clean_result = self.clean_prompt(prompt)
+        
+        # Get structured data through LLM
+        response = self.client.chat.completions.create(
+            model="gpt-4",
+            messages=[
+                {"role": "system", "content": self.prompt_templates[prompt_type]},
+                {"role": "user", "content": clean_result.cleaned_text}
+            ]
+        )
+        
+        structured_data = self._parse_llm_response(response.choices[0].message.content)
+        
+        return PromptResult(
+            cleaned_text=clean_result.cleaned_text,
+            structured_data=structured_data,
+            scene_details=self._extract_scene_details(structured_data),
+            validation_points=self._extract_validation_points(structured_data)
+        )
+
+    def _parse_llm_response(self, response: str) -> Dict:
+        """Parse LLM response into structured data"""
+        try:
+            # Implement parsing logic for JSON-formatted LLM response
+            return eval(response)  # Use json.loads in production
+        except:
+            return {"error": "Failed to parse LLM response"}
+
+    def _extract_scene_details(self, data: Dict) -> Dict:
+        """Extract scene-specific details for image generation"""
+        return {
+            "setting": data.get("setting", {}),
+            "mood": data.get("mood", "neutral"),
+            "lighting": data.get("lighting", "natural"),
+            "perspective": data.get("perspective", "eye-level"),
+            "key_elements": data.get("key_elements", [])
+        }
+
+    def _extract_validation_points(self, data: Dict) -> List[str]:
+        """Extract validation points for consistency checking"""
+        return [
+            f"character:{char['name']}" for char in data.get("characters", [])
+        ] + [
+            f"plot_point:{point}" for point in data.get("plot_points", [])
+        ]
+
+    def _load_template(self, template_name: str) -> str:
+        """Load prompt template from file"""
+        # Implement template loading
+        return "Default template content"
 
     def _remove_extra_whitespace(self, text: str) -> tuple[str, List[str]]:
         original = text

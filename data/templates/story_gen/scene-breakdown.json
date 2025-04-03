@@ -1,0 +1,19 @@
+{
+    "sceneBreakdown": {
+        "title": "Scene Breakdown",
+        "acts": [
+            {
+                "act": "Act One",
+                "scenes": "[List of scenes with brief descriptions]"
+            },
+            {
+                "act": "Act Two",
+                "scenes": "[List of scenes with brief descriptions]"
+            },
+            {
+                "act": "Act Three",
+                "scenes": "[List of scenes with brief descriptions]"
+            }
+        ]
+    }
+}

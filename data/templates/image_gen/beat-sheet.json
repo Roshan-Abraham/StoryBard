@@ -1,0 +1,17 @@
+{
+    "beatSheet": {
+        "title": "Beat Sheet",
+        "beats": [
+            {
+                "beat": "Opening Image",
+                "page": 1,
+                "description": "[A visual that sets the tone of the movie, and introduces the character's world]"
+            },
+            {
+                "beat": "Final Image",
+                "page": 110,
+                "description": "[A visual that shows how the protagonist has changed and the new status quo]"
+            }
+        ]
+    }
+}

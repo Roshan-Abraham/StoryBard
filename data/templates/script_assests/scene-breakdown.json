@@ -1,0 +1,61 @@
+{
+    "documentType": "Scene Breakdown",
+    "scenes": [
+        {
+            "sceneNumber": 1,
+            "sceneHeading": "Provide the scene heading here (e.g., INT. LOCATION - TIME)",
+            "purpose": "Describe the purpose of the scene (e.g., Introduce main character and their initial conflict).",
+            "charactersInvolved": [
+                "List the characters involved in the scene"
+            ],
+            "keyEvents": [
+                "List the key events that happen in the scene"
+            ],
+            "dialogue": "Provide a brief description of the dialogue and interactions that take place.",
+            "thematicSignificance": "Explain the thematic significance of the scene (e.g., Highlights the main character's internal conflict).",
+            "arcImpact": "Describe how this scene impacts the character's arc (e.g., Shows the beginning of the character's transformation)."
+        },
+        {
+            "sceneNumber": 2,
+            "sceneHeading": "Provide the scene heading here (e.g., INT. LOCATION - TIME)",
+            "purpose": "Describe the purpose of the scene (e.g., Show character's reaction to a major event).",
+            "charactersInvolved": [
+                "List the characters involved in the scene"
+            ],
+            "keyEvents": [
+                "List the key events that happen in the scene"
+            ],
+            "dialogue": "Provide a brief description of the dialogue and interactions that take place.",
+            "thematicSignificance": "Explain the thematic significance of the scene (e.g., Illustrates the character's turning point).",
+            "arcImpact": "Describe how this scene impacts the character's arc (e.g., Shows the character's increasing engagement with the main conflict)."
+        },
+        {
+            "sceneNumber": 3,
+            "sceneHeading": "Provide the scene heading here (e.g., INT. LOCATION - TIME)",
+            "purpose": "Describe the purpose of the scene (e.g., Show character committing a significant action).",
+            "charactersInvolved": [
+                "List the characters involved in the scene"
+            ],
+            "keyEvents": [
+                "List the key events that happen in the scene"
+            ],
+            "dialogue": "Provide a brief description of the dialogue and interactions that take place.",
+            "thematicSignificance": "Explain the thematic significance of the scene (e.g., Highlights the character's moral descent).",
+            "arcImpact": "Describe how this scene impacts the character's arc (e.g., Shows the character's transformation into a new role)."
+        },
+        {
+            "sceneNumber": 4,
+            "sceneHeading": "Provide the scene heading here (e.g., INT. LOCATION - TIME)",
+            "purpose": "Describe the purpose of the scene (e.g., Solidify character's new role).",
+            "charactersInvolved": [
+                "List the characters involved in the scene"
+            ],
+            "keyEvents": [
+                "List the key events that happen in the scene"
+            ],
+            "dialogue": "Provide a brief description of the dialogue and interactions that take place.",
+            "thematicSignificance": "Explain the thematic significance of the scene (e.g., Finalizes the character's transformation).",
+            "arcImpact": "Describe how this scene impacts the character's arc (e.g., Shows the completion of the character's arc)."
+        }
+    ]
+}

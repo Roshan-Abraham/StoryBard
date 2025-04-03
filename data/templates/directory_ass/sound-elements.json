@@ -1,0 +1,49 @@
+
+{
+    "soundElements": {
+        "title": "Sound Elements",
+        "description": "Details of the auditory aspects of the screenplay, enhancing the atmosphere and emotional impact.",
+        "elements": [
+            {
+                "element": "Music",
+                "description": "**The use of music to enhance the mood or emotion of a scene. Includes both diegetic (source) and non-diegetic (score) music.**",
+                "params": {
+                    "musicType": ["DIEGETIC", "NON-DIEGETIC"],
+                    "mood": ["SUSPENSEFUL", "JOYFUL", "SAD", "ROMANTIC", "DRAMATIC", "COMICAL"],
+                    "description": "Details of how the music is used in the scene, including lyrical or instrumental aspects. **In a script, can include song lyrics, or a description of the musical sequence, especially in musical numbers**."
+                }
+            },
+            {
+                "element": "Sound Effects",
+                "description": "**Noises or sounds (SFX) used to create atmosphere or enhance the story, indicated in the audio column of an AV script or by capitalization in the action lines of a screenplay.**",
+                "params": {
+                    "effectType": ["AMBIENT", "SPECIFIC", "IMPACT"],
+                    "description": "Specific sounds and the context in which they are used in a scene. **Capitalization in the screenplay action lines can emphasize the impact of a sound effect.**",
+                    "avScriptColumn": "If an AV script is being written include which audio column the SFX belongs in."
+                }
+            },
+            {
+                "element": "Dialogue",
+                "description": "**The spoken words of the characters, including subtext, tone, and any parenthetical performance directions.**",
+                "params": {
+                    "character": "Character name or ID",
+                    "dialogue": "The exact spoken words of the character.",
+                    "subtext": "Underlying meanings or intentions of the dialogue.",
+                    "tone": ["SARCASTIC", "JOYFUL", "SERIOUS", "ANGRY", "SAD"],
+                    "parenthetical": "Performance directions for actors, such as (WHISPERING) or (LAUGHING). **Should be used sparingly to avoid over-directing actors.**"
+                }
+            },
+            {
+                "element": "Voiceover",
+                "description": "**Narration provided by a character or unseen narrator (V.O.), used for exposition or internal monologue. Also included in the audio column of an AV script.**",
+                "params": {
+                    "character": "Character name or ID (if applicable)",
+                    "narration": "The exact words being spoken as voiceover.",
+                    "purpose": "The reason for the voiceover, whether it's exposition, character's thoughts, or scene setting.",
+                    "avScriptColumn": "If an AV script is being written include which audio column the V.O. belongs in.",
+                    "extension": "Formatted as an extension to a character's dialogue"
+                }
+            }
+        ]
+    }
+}
